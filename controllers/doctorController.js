@@ -43,7 +43,7 @@ module.exports.createSession = async function (req, res) {
                 message: "Invalid UserName or Password"
             });
         }
-        const cookies = jwt.sign(user.toJSON(),process.env.JWT_SECRET,{expiresIn:'5000'})
+        const cookies = jwt.sign(user.toJSON(),process.env.JWT_SECRET,{expiresIn:'1000000'})
         res.cookie('jwt', cookies, { httpOnly: true, secure: true, maxAge: 1000000 * 1000 });
         return res.status(200).json({
             message: "Sign in successful. Here is your token, please keep it safe",
