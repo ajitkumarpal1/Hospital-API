@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require('express');
 const app = express();
-
+const express = require('express')
 const port = 8000;
 const db = require('./config/mongoose')
 
@@ -9,7 +9,9 @@ const db = require('./config/mongoose')
 const passport = require('passport');
 const passportJWT = require('./config/passport-jwt-strategy')
 
-
+app.use(cors({
+    origin: '*',
+}))
 app.use(express.urlencoded({ extended: true }))
 
 app.use(passport.initialize());
